@@ -1,9 +1,9 @@
 // response-time-logger.js
 const metrics = require('wavefrontmetrics');
 const registry = new metrics.Registry();
-const prefix = "wavefront.nodejs.direct";
 const DEPLOYMENTID = process.env.DEPLOYMENT_ID || "vra.node.testing.new";
 const WAVEFRONT_TOKEN = process.env.WAVEFRONT_TOKEN
+const prefix = DEPLOYMENTID +".nodejs.geocode";
 
 const directReporter = new metrics.WavefrontDirectReporter(registry, prefix,  "surf.wavefront.com", WAVEFRONT_TOKEN, { 'app': "vra.app.weather", 'source': DEPLOYMENTID});
 directReporter.start(5000);
