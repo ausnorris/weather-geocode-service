@@ -1,7 +1,7 @@
 // response-time-logger.js
 const metrics = require('wavefrontmetrics');
 const registry = new metrics.Registry();
-const DEPLOYMENTID = "var.deployment."+process.env.DEPLOYMENT_ID || "vra.node.testing.new";
+const DEPLOYMENTID = "vra.deployment."+process.env.DEPLOYMENT_ID || "vra.node.testing.new";
 const WAVEFRONT_TOKEN = process.env.WAVEFRONT_TOKEN
 const prefix = DEPLOYMENTID +".nodejs.geocode";
 const hostId = process.env.HOST_ID
