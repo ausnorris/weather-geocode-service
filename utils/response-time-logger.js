@@ -4,7 +4,7 @@ const registry = new metrics.Registry();
 const DEPLOYMENTID = "vra.deployment."+process.env.DEPLOYMENT_ID || "vra.node.testing.new";
 const WAVEFRONT_TOKEN = process.env.WAVEFRONT_TOKEN
 const prefix = DEPLOYMENTID +".nodejs.geocode";
-const hostId = process.env.HOST_ID
+const hostId = process.env.HOST_ID || "testing-host-id"
 
 const directReporter = new metrics.WavefrontDirectReporter(registry, prefix,  "surf.wavefront.com", WAVEFRONT_TOKEN, { 'app': "vra.app.weather", 'source': hostId + "-" +DEPLOYMENTID+"-geocode"});
 directReporter.start(5000);

@@ -4,7 +4,9 @@ const geocode = require('./utils/geocode')
 const app = express();
 const logResponseTime = require("./utils/response-time-logger");
 const PORT = process.env.WEATHER_GEOCODE_LB_SERVICE_PORT || 3001
+var cors = require('cors');
 
+app.use(cors());
 app.use(logResponseTime)
 app.get('/api', (req, res) => {
     if (!req.query.address){
